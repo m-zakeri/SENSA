@@ -14,6 +14,7 @@ import seaborn as sns
 
 dir = r'D:/Users/Morteza/OneDrive/Online2/_04_2o/o2_university/PhD/Project21/a170_refactoring_for_readability/evaluations/'
 
+
 def change_width(g, new_value):
     for ax in g.axes.ravel():
         print(ax)
@@ -26,9 +27,10 @@ def change_width(g, new_value):
         # we recenter the bar
         ax.patch.set_x(ax.patch.get_x() + diff * .5)
 
-def change_width2(g, new_value) :
+
+def change_width2(g, new_value):
     locs = g.ax.get_xticks()
-    for i,patch in enumerate(g.ax.patches):
+    for i, patch in enumerate(g.ax.patches):
         current_width = patch.get_width()
         diff = current_width - new_value
 
@@ -36,12 +38,13 @@ def change_width2(g, new_value) :
         patch.set_width(new_value)
 
         # we recenter the bar
-        patch.set_x(locs[i//4] - (new_value * .5))
+        patch.set_x(locs[i // 4] - (new_value * .5))
 
 
 def plot_accessor_mutators_frequency():
     df = pd.read_excel(dir + 'accessor_mutator_methods.xlsx', index_col=False)
-    df1 = pd.melt(df, id_vars=['Method type', 'TrainPercent', 'TestPercent'], var_name='Dataset', value_name='Number of methods', )
+    df1 = pd.melt(df, id_vars=['Method type', 'TrainPercent', 'TestPercent'], var_name='Dataset',
+                  value_name='Number of methods', )
 
     print(df1)
     # quit()
@@ -81,7 +84,42 @@ def plot_sensa_pefromance_changes():
     plt.show()
 
 
+def plot_samples_histogram():
+    df_path = r'D:/Users/Morteza/OneDrive/Online2/_04_2o/o2_university/PhD/Project21/a170_similarity_naming_readability/evaluations/'
+    df_name = 'SENSA_charts.xlsx'
+    df = pd.read_excel(df_path + df_name, sheet_name='manual-evaluation-samples')
+    df['All methods'] = df['All methods'] / df['All methods'].sum()
+    df['Methods selected for manual evaluation'] = df['Methods selected for manual evaluation'] / df[
+        'Methods selected for manual evaluation'].sum()
+
+    df2 = pd.melt(df,
+                  # id_vars=['Project ID'],
+                  var_name=['Test set'],
+                  value_vars=['All methods', 'Methods selected for manual evaluation'],
+                  value_name='Number of methods',
+                  )
+
+    print(df2)
+
+    g = sns.displot(df2, x='Number of methods',
+                    hue='Test set',
+                    # hue_order=['All methods', 'Methods selected for manual evaluation'],
+                    bins=31,
+                    kind='hist',
+                    # kind='ecdf',
+                    kde=True,
+                    # bins=[1, 2, 3, 4, 5,6,7],
+                    # ax=ax
+                    # legend=False,
+                    # rug=True,
+                    # log_scale=True
+                    )
+    # g.ax.legend(loc=5)
+    plt.tight_layout()
+    plt.show()
+
 
 if __name__ == '__main__':
-    plot_sensa_pefromance_changes()
+    # plot_sensa_pefromance_changes()
     # plot_accessor_mutators_frequency()
+    plot_samples_histogram()
