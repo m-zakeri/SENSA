@@ -9,14 +9,14 @@ theme:
   name: material
   palette:
     - scheme: default
-      primary: lime
-      accent: pink
+      primary: teal
+      accent: teal
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     - scheme: slate
-      primary: lime
-      accent: pink
+      primary: teal
+      accent: teal
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
