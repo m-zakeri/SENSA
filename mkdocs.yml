@@ -1,0 +1,54 @@
+site_name: SENSA Docs (v0.1.0)
+site_url: https://m-zakeri.github.io/SENSA
+repo_url: https://github.com/m-zakeri/SENSA
+site_description: Software Entity Name Suggestion Apparatus
+site_author: Morteza Zakeri-Nasrabadi
+copyright: © 2021-2023 SENSA project
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: lime
+      accent: pink
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: lime
+      accent: pink
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  icon:
+    logo: material/library
+  features:
+    - header.autohide
+  extra:
+    social:
+      - icon: fontawesome/brands/linkedin
+        link: https://www.linkedin.com/in/mortazazakeri/
+
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          setup_commands:
+            - import sys
+            - import os
+          selection:
+            members: True
+
+nav:
+    - Home: index.md
+    - Metrics: metrics.md
+    - Benchmarks: benchmarks.md
+    - Datasets: datasets.md
+    - Modules:
+        - Main: modules/core.md
+    - Publications: publications.md
+    - Related projects: related_projects.md
+    - Issue Tracker: 'https://github.com/m-zakeri/SENSA/issues'
+
