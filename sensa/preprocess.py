@@ -1,4 +1,4 @@
-from NameSmell.Types import *
+from name_smells.Types import *
 import pandas as pd
 
 def split_files(inputfile,index):

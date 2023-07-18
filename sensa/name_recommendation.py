@@ -1,8 +1,8 @@
 import os
 import numpy as np
 import pandas as pd
-from NameSmell.Similarity import *
-from NameSmell.TokenToWords import *
+from name_smells.Similarity import *
+from name_smells.TokenToWords import *
 from sklearn.neighbors import NearestNeighbors
 from sklearn.neighbors import KNeighborsClassifier
 from .preprocess import *

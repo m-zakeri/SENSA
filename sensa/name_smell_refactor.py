@@ -1,14 +1,14 @@
 
 import pandas as pd
-#from Refactoring.rename_method import rename_method
+#from rename_refactoring.rename_method import rename_method
 from Utilization.constants import *
 from .preprocess import *
-from NameSmell.NameSmellDetector import *
-from NameSmell.Types import *
+from name_smells.NameSmellDetector import *
+from name_smells.Types import *
 from .name_recommendation import *
 from Utilization.source_meter import *
-from NameSmell.Types import *
-#from Refactoring.rename import *
+from name_smells.Types import *
+#from rename_refactoring.rename import *
 from Evaluation.NameEvaluation import *
 import time
 
